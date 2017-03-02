@@ -31,14 +31,16 @@ class IP(Structure):
 		self.protocol_map = {1:"ICMP", 6:"TCP", 17:"UDP"}
 
 		# human readable IP addresses
-		self.src_address = socket.inet_ntoa(struct.pack("<L", self.src))
-		self.dst_address = socket.inet_ntoa(struct.pack("<L", self.dst))
+		# originally used 'L' as the format/type
+		self.src_address = socket.inet_ntoa(struct.pack("<I", self.src))
+		self.dst_address = socket.inet_ntoa(struct.pack("<I", self.dst))
 
 		# human readable protocol
 		try:
 			self.protocol = self.protocol_map[self.protocol_num]
 		except:
 			slef.protocol = str(self.protocol_num)
+
 
 # ## ##
 if os.name == "nt":

@@ -18,7 +18,7 @@ magic_message = "PYTHONRULES!"
 
 # this sprays out the UDP datagrams
 def udp_sender(subnet, magic_message):
-	#time.sleep(5)
+	time.sleep(5)
 	sender = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
 	for ip in IPNetwork(subnet):
